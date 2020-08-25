@@ -1,1 +1,0 @@
-{"Generic":{"accountName":"Generic","balance":0},"Long Term Savings":{"accountName":"Long Term Savings","balance":565.5},"Regular Costs Buffer":{"accountName":"Regular Costs Buffer","balance":30}}
