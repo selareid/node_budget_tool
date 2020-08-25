@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Da Tools Things</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <h3 id="totalText">Total Balance: $_________</h3>
+    </div>
+
+    <div id="leftSide">
+      <ul id="accountsList">
+      </ul>
+    </div>
+
+    <div id="centreSide">
+      <h3>Adjust Balance</h3>
+      <h5 id="currentlySelected">Currently Selected: _____</h5>
+      <form action="javascript:handleFormClick()">
+        <input type="float" id="numberInput">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div id="rightSide">
+      <h4>Notes:</h4>
+      <textarea id="textArea" rows="4"></textarea>
+      <input type="text" id="rightSideAccountName">
+      <button onclick="addAccount()">Add Account</button>
+      <button onclick="removeAccount()">Remove Account</button>
+    </div>
+
+    <script src="client.js"></script>
+  </body>
+</html>

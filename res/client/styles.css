@@ -1,0 +1,88 @@
+body {
+  background-color: black;
+}
+
+* {
+  padding: 0px;
+  /* display: block; */
+}
+
+#header {
+  background-color: blue;
+  width: auto;
+  width: 30%;
+  max-width: 50%;
+  margin-left: 50px;
+}
+
+#leftSide {
+  background-color: grey;
+  float: left;
+  width: 30%;
+  max-width: 50%;
+  margin-left: 50px;
+  margin-top: 25px;
+}
+
+#accountsList {
+  min-height: 330px;
+  margin: 0px;
+  background-color: darkgrey;
+  overflow: hidden;
+  list-style: none;
+}
+
+#accountsList li {
+  margin: 10px;
+  border: solid 1px;
+  text-align: right;
+}
+
+#accountsList li button{
+  min-width: 100%;
+  min-height: 100%;
+  padding: 3px;
+  padding-right: 15px;
+  cursor: pointer;
+  border: none;
+  transition-duration: 0.4s;
+}
+
+#accountsList li button:hover{
+  background-color: lightgrey;
+}
+
+#centreSide {
+  background-color: grey;
+  float: left;
+  width: 30%;
+  max-width: 50%;
+  min-height: 330px;
+  margin-left: 50px;
+  margin-top: 25px;
+}
+
+#centreSide * {
+  margin: 3px;
+}
+
+#rightSide {
+  background-color: grey;
+  float: left;
+  width: 30%;
+  max-width: 50%;
+  min-height: 330px;
+  margin-left: 50px;
+  margin-top: 25px
+}
+
+#rightSide * {
+  display: block;
+  float: left;
+  margin: 5px;
+}
+
+#rightSide textarea {
+  min-width: 90%;
+  resize: none;
+}
