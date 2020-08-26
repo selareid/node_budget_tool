@@ -31,8 +31,8 @@ io.on('connection', socket => {
 
   socket.on('addBalance', function (data) {
     accountHandler.addBalance(data.accountName, data.amount);
-    socket.emit('account', {accountName: data.accountName, balance: accountHandler.getBalance(data.accountName)});
-    socket.emit('account', {accountName: 'total', balance: accountHandler.getTotalBalance()});
+    io.emit('account', {accountName: data.accountName, balance: accountHandler.getBalance(data.accountName)});
+    io.emit('account', {accountName: 'total', balance: accountHandler.getTotalBalance()});
   });
 
   socket.on('addAccount', function (accountName) {
@@ -47,14 +47,14 @@ io.on('connection', socket => {
 
   socket.on('updateTextArea', function (text) {
     Notes.set(text);
-    socket.emit('updateTextArea', Notes.get());
+    io.emit('updateTextArea', Notes.get());
   });
 });
 
 function sendAllAccountDetails(socket) {
-  socket.emit('account', {accountName: 'total', balance: accountHandler.getTotalBalance()});
+  io.emit('account', {accountName: 'total', balance: accountHandler.getTotalBalance()});
   for (let accountName in accountHandler.getAllAccountData()) {
-    socket.emit('account', accountHandler.getAllAccountData()[accountName]);
+    io.emit('account', accountHandler.getAllAccountData()[accountName]);
   }
 }
 
