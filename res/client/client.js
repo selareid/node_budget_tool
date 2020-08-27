@@ -62,9 +62,10 @@ function handleFormClick() {
 function handleTransferFormClick() {
   let transfer = document.getElementById('transferEnd').value;
   let amount = parseFloat(document.getElementById('numberInput').value);
-  socket.emit('addBalance', {accountName: transfer, amount: amount});
+  socket.emit('addBalance', {accountName: currentlySelected, amount: -amount});
   socket.emit('addBalance', {accountName: transfer, amount: amount});
   document.getElementById('transferEnd').value = "";
+  document.getElementById('numberInput').value = "";
   currentlySelected = null;
   updateCurrentlySelected();
 }
