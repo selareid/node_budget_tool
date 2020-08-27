@@ -30,8 +30,8 @@ io.on('connection', socket => {
   socket.emit('updateTextArea', Notes.get());
 
   socket.on('addBalance', function (data) {
-    accountHandler.addBalance(data.accountName, data.amount);
-    io.emit('account', {accountName: data.accountName, balance: accountHandler.getBalance(data.accountName)});
+    //add balance, and emit balance and totals
+    io.emit('account', {accountName: data.accountName, balance: accountHandler.addBalance(data.accountName, data.amount)});
     io.emit('account', {accountName: 'total', balance: accountHandler.getTotalBalance()});
   });
 

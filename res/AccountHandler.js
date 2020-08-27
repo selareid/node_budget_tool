@@ -49,7 +49,8 @@ class AccountHandler {
 
   addBalance(accountName, amount = 0) {
     if (!this.accountExists(accountName)) return FAIL;
-    this.cachedAccounts[accountName].balance += amount;
+    let newBalance = Math.round((this.cachedAccounts[accountName].balance + amount)*100)/100
+    this.cachedAccounts[accountName].balance = newBalance;
 
     this.saveCached();
     return this.cachedAccounts[accountName].balance;
@@ -57,6 +58,8 @@ class AccountHandler {
 
   addAccount(accountName, balance = 0) {
     if (this.accountExists(accountName)) return FAIL;
+
+    balance = Math.round(balance*100)/100;
 
     this.cachedAccounts[accountName] = {
       accountName: accountName,
