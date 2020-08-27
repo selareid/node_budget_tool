@@ -59,6 +59,16 @@ function handleFormClick() {
   updateCurrentlySelected();
 }
 
+function handleTransferFormClick() {
+  let transfer = document.getElementById('transferEnd').value;
+  let amount = parseFloat(document.getElementById('numberInput').value);
+  socket.emit('addBalance', {accountName: transfer, amount: amount});
+  socket.emit('addBalance', {accountName: transfer, amount: amount});
+  document.getElementById('transferEnd').value = "";
+  currentlySelected = null;
+  updateCurrentlySelected();
+}
+
 function addAccount() {
   var accountName = document.getElementById('rightSideAccountName').value;
   socket.emit('addAccount', accountName);
