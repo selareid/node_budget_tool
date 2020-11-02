@@ -38,6 +38,14 @@ socket.on('account', function (data) {
     document.getElementById('accountsList').appendChild(listElement);
     accounts[accountName].element = element;
   }
+
+  if (balance < 0) {
+    let negativeBalance = 0;
+    for (let account of accounts) {
+      if (account.balance < 0) negativeBalance += account.balance;
+    }
+    accounts[accountName].element.innerHTML = accounts[accountName].element.innerHTML + ` ${negativeBalance}`;
+  }
 });
 
 socket.on('updateTextArea', function (text) {
