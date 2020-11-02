@@ -16,6 +16,11 @@ socket.on('account', function (data) {
   let accountName = data.accountName;
   let balance = data.balance;
 
+  accounts[accountName] = {
+    accountName: accountName,
+    balance: balance
+  }
+
   if (accounts[accountName]) {
     if (accountName == 'total') {
       accounts[accountName].element.innerHTML = `Total Balance: $${Math.floor(balance*100)/100}`;
@@ -32,11 +37,6 @@ socket.on('account', function (data) {
     listElement.appendChild(element);
     document.getElementById('accountsList').appendChild(listElement);
     accounts[accountName].element = element;
-  }
-
-  accounts[accountName] = {
-    accountName: accountName,
-    balance: balance
   }
 
   if ((balance < 0 || accountName == 'total') && accounts['total'].element) {
