@@ -16,10 +16,8 @@ socket.on('account', function (data) {
   let accountName = data.accountName;
   let balance = data.balance;
 
-  accounts[accountName] = {
-    accountName: accountName,
-    balance: balance
-  }
+  accounts[accountName].accountName = accountName;
+  accounts[accountName].balance = balance;
 
   if (accounts[accountName]) {
     if (accountName == 'total') {
