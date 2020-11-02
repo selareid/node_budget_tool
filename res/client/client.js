@@ -46,7 +46,7 @@ socket.on('account', function (data) {
 
       if (account.balance < 0) negativeBalance += account.balance;
     }
-    accounts['total'].element.innerHTML = `Total Balance: $${Math.floor(accounts['total'].balance*100)/100} ${negativeBalance}`;
+    accounts['total'].element.innerHTML = `Total Balance: $${Math.floor(accounts['total'].balance*100)/100} $${negativeBalance}`;
   }
 });
 
