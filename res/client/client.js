@@ -18,7 +18,7 @@ socket.on('account', function (data) {
 
   if (accounts[accountName]) {
     if (accountName == 'total') {
-      accounts[accountName].element.innerHTML = `Total Balance: $${balance}`;
+      accounts[accountName].element.innerHTML = `Total Balance: $${Math.floor(balance*100)/100}`;
     }
     else {
       accounts[accountName].element.innerHTML = `${accountName} | $${balance}`;
