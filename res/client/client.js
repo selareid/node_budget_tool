@@ -39,14 +39,14 @@ socket.on('account', function (data) {
     accounts[accountName].element = element;
   }
 
-  if (balance < 0) {
+  if (balance < 0 || accountName == 'total') {
     let negativeBalance = 0;
     for (let account_i in accounts) {
       let account = accounts[account_i];
 
       if (account.balance < 0) negativeBalance += account.balance;
     }
-    accounts['total'].element.innerHTML = accounts['total'].element.innerHTML + ` ${negativeBalance}`;
+    accounts['total'].element.innerHTML = `Total Balance: $${Math.floor(accounts['total'].balance*100)/100} ${negativeBalance}`;
   }
 });
 
