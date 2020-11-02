@@ -25,11 +25,6 @@ socket.on('account', function (data) {
     }
   }
   else {
-    accounts[accountName] = {
-      accountName: accountName,
-      balance: balance
-    }
-
     var element = document.createElement('button');
     element.onclick = function () {currentlySelected = accountName; updateCurrentlySelected();}
     element.innerHTML = `${accountName} | $${balance}`;
@@ -37,6 +32,11 @@ socket.on('account', function (data) {
     listElement.appendChild(element);
     document.getElementById('accountsList').appendChild(listElement);
     accounts[accountName].element = element;
+  }
+
+  accounts[accountName] = {
+    accountName: accountName,
+    balance: balance
   }
 
   if (balance < 0 || accountName == 'total') {
