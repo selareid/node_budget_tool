@@ -39,7 +39,7 @@ socket.on('account', function (data) {
     balance: balance
   }
 
-  if (balance < 0 || accountName == 'total') {
+  if ((balance < 0 || accountName == 'total') && accounts['total'].element) {
     let negativeBalance = 0;
     for (let account_i in accounts) {
       let account = accounts[account_i];
